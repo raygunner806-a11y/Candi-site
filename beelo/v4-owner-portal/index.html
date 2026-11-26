@@ -38,13 +38,13 @@
 
       <div class="ctl" id="val-ctl">
         <div class="small"><b>Home valuations for this owner</b></div>
-        <div class="toggle" id="fee-toggle" role="group" aria-label="Valuation pricing">
+        <div class="toggle" id="mode-toggle" role="group" aria-label="Valuation pricing">
           <button data-mode="included">Included in fee</button>
           <button data-mode="addon">Add-on</button>
         </div>
-        <div class="row addon-row" id="addon-row">
+        <div class="row price-row" id="price-row">
           <span class="small">Portfolio analysis</span>
-          <span class="dollar"><input class="input" id="addon-price" type="number" min="0" step="5" value="150"></span>
+          <span class="dollar"><input class="input" id="price-input" type="number" min="0" step="5" value="150"></span>
           <span class="small muted">/ quarter</span>
         </div>
         <p class="tiny muted" id="mode-note"></p>
