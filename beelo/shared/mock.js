@@ -6576,7 +6576,9 @@ window.MOCK = {
  }
 };
 (function (M) {
-  M.byId = (col, id) => (M[col] || []).find((x) => x.id === id) || null;
-  M.doorLabel = (d) => d.address + (d.unit ? ', ' + d.unit : '') + ', ' + d.city;
-  M.cardFeeFor = (amt) => Math.round((amt * M.cardFee.pct / 100 + M.cardFee.fixed) * 100) / 100;
+  /* Non-enumerable so structuredClone(MOCK) works (it skips non-enumerable props). */
+  const def = (k, f) => Object.defineProperty(M, k, { value: f, enumerable: false });
+  def('byId', (col, id) => (M[col] || []).find((x) => x.id === id) || null);
+  def('doorLabel', (d) => d.address + (d.unit ? ', ' + d.unit : '') + ', ' + d.city);
+  def('cardFeeFor', (amt) => Math.round((amt * M.cardFee.pct / 100 + M.cardFee.fixed) * 100) / 100);
 })(window.MOCK);
