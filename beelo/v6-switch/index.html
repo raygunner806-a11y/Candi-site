@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hive Switch</title>
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="#"><span class="hex"></span>Hive</a>
+  <div class="row">
+    <button class="btn sm ink" id="run-demo">&#9654; Run demo</button>
+    <a class="btn sm ghost" href="../index.html">&larr; All pitches</a>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero card">
+    <span class="badge info">Switching from AppFolio or similar?</span>
+    <h1>Move your doors in thirty minutes.</h1>
+    <p class="muted">Export your rent roll, drop it here, and Hive maps your doors, tenants and owners for you. Then tick through a 30-minute setup and you are live.</p>
+    <div class="row price">
+      <div class="kpi"><div class="val" id="p-hive"></div><div class="lbl">Hive / month</div></div>
+      <div class="kpi"><div class="val" id="p-bundle"></div><div class="lbl">BEELO + Hive / month</div></div>
+      <span class="small muted">Per agent. Owners never get a bill from us.</span>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="import">1. Import</button>
+    <button class="tab" data-tab="setup">2. 30-min setup</button>
+    <button class="tab" data-tab="savings">Savings</button>
+    <button class="tab" data-tab="features">Features</button>
+  </nav>
+
+  <section class="tab-panel" data-panel="import">
+    <ol class="steps" id="steps">
+      <li data-s="1" class="on">Choose file</li><li data-s="2">Map columns</li><li data-s="3">Import</li><li data-s="4">Live console</li>
+    </ol>
+
+    <div id="st-1" class="stage">
+      <label class="drop card flat" id="drop">
+        <input type="file" id="file" accept=".csv,text/csv" class="hide">
+        <div class="drop-ic"></div>
+        <strong>Drop your rent-roll CSV here</strong>
+        <span class="small muted">or tap to choose a file. Most tools export one under Reports.</span>
+      </label>
+      <div class="row center"><span class="muted small">No export handy?</span><button class="btn" id="use-sample">Use sample CSV</button></div>
+      <div id="preview" class="hide card flat">
+        <div class="row between"><h3 id="pv-title">Preview</h3><span id="pv-badge"></span></div>
+        <div class="scroll-x"><table class="table" id="pv-table"></table></div>
+        <p class="tiny muted" id="pv-more"></p>
+        <button class="btn block" id="to-map">Map columns &rarr;</button>
+      </div>
+    </div>
+
+    <div id="st-2" class="stage hide">
+      <div class="card flat">
+        <h3>Map your columns</h3>
+        <p class="small muted">We guessed each one. Change anything that looks off, or set it to Skip.</p>
+        <div class="map-grid" id="map"></div>
+        <div class="row between">
+          <button class="btn ghost" id="back-1">&larr; Back</button>
+          <button class="btn" id="start-import">Import <span id="map-count"></span></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="st-3" class="stage hide">
+      <div class="card flat">
+        <h3 id="imp-title">Importing&hellip;</h3>
+        <div class="bar"><div class="fill" id="imp-fill"></div></div>
+        <ul class="list small" id="imp-log"></ul>
+        <div id="imp-done" class="hide">
+          <p class="done-line" id="imp-summary"></p>
+          <button class="btn block" id="to-console">Open my console &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="st-4" class="stage hide">
+      <div class="row between"><h2>Your console</h2><span class="row"><span id="cs-badge"></span><button class="btn sm ghost" id="restart">Import again</button></span></div>
+      <div class="kpis" id="cs-kpis"></div>
+      <div class="console">
+        <div class="card flat">
+          <div class="row between"><h3>Doors</h3><input class="input sm-in" id="door-q" placeholder="Search address or tenant"></div>
+          <ul class="list" id="door-list"></ul>
+        </div>
+        <div class="card flat">
+          <div class="row between"><h3>Open tickets</h3><button class="btn sm" id="new-ticket">+ New ticket</button></div>
+          <ul class="list" id="tix"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tab-panel" data-panel="setup">
+    <div class="card flat">
+      <div class="row between"><h2>Your 30-minute setup</h2><strong id="mins"></strong></div>
+      <div class="bar"><div class="fill" id="setup-fill"></div></div>
+      <ul class="list" id="checklist"></ul>
+    </div>
+  </section>
+
+  <section class="tab-panel" data-panel="savings">
+    <div class="card flat">
+      <h2>What would you save?</h2>
+      <label class="field"><span>What you pay today for property management software, per month</span>
+        <input class="input" id="today" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. what you pay today">
+      </label>
+      <div id="calc" class="calc"></div>
+      <p class="disclaimer">Enter your own number from your last invoice. We do not guess other companies' prices.</p>
+    </div>
+  </section>
+
+  <section class="tab-panel" data-panel="features">
+    <div class="card flat">
+      <h2>What comes with you</h2>
+      <div class="scroll-x"><table class="table" id="feat"></table></div>
+    </div>
+  </section>
+</main>
+<script src="../shared/mock.js"></script><script src="../shared/ui.js"></script><script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hive Solo · BEELO</title>
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="../index.html" title="Hive"><span class="hex"></span>Hive</a>
+  <div class="row top-actions">
+    <div class="toggle" id="roles" role="tablist" aria-label="View as">
+      <button data-role="agent" class="on">Agent</button>
+      <button data-role="tenant">Tenant</button>
+      <button data-role="vendor">Vendor</button>
+    </div>
+    <button class="btn sm" id="run-demo">&#9654; Run demo</button>
+    <a class="btn sm ghost" href="../index.html">&larr; All pitches</a>
+  </div>
+</header>
+
+<section class="wrap pitch">
+  <div class="row between">
+    <div>
+      <h1>Run your doors without texts and spreadsheets.</h1>
+      <p class="muted">Tenants send a photo, you pick a vendor in three taps, everyone sees the same dated timeline.</p>
+    </div>
+    <div class="price card flat">
+      <div class="kpi"><div class="val" id="price"></div><div class="lbl">per agent / month</div></div>
+      <span class="badge">Hive only</span> <span class="tiny muted">Owners never get a bill from us.</span>
+    </div>
+  </div>
+  <div id="demo-step" class="demo-step hide"></div>
+</section>
+
+<main class="wrap stage" id="stage" data-role="agent">
+  <section class="console card" id="console">
+    <div class="row between">
+      <div>
+        <h2 class="console-title">Good afternoon, <span id="agent-name"></span></h2>
+        <p class="small muted" id="agent-sub"></p>
+      </div>
+      <span id="sample"></span>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="board">Tickets</button>
+      <button class="tab" data-tab="doors">Doors</button>
+      <button class="tab" data-tab="ledger">Ledger</button>
+    </div>
+    <div class="tab-panel" data-panel="board"><div class="board" id="board"></div></div>
+    <div class="tab-panel" data-panel="doors"><div id="doors"></div></div>
+    <div class="tab-panel" data-panel="ledger"><div id="ledger"></div></div>
+  </section>
+
+  <aside class="side">
+    <div class="phone" id="phone">
+      <div class="phone-bar"><span id="phone-clock">2:00 PM</span><span id="phone-who">Tenant</span><span>&#9679;&#9679;&#9679;</span></div>
+      <div class="phone-body" id="phone-body"></div>
+    </div>
+    <p class="tiny muted center" id="phone-caption"></p>
+  </aside>
+</main>
+
+<footer class="wrap tiny muted">Mock data for a pitch demo. Alerts go out from one local number per agent; quiet hours 9 pm to 8 am except emergencies.</footer>
+
+<script src="../shared/mock.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

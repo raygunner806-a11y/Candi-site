@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BEELO Owner Portal</title>
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="#"><span class="hex"></span>Hive <span class="tag">Owner Portal</span></a>
+  <div class="row top-actions">
+    <button class="btn sm" id="run-demo">&#9654; Run demo</button>
+    <a class="btn ghost sm" href="../index.html">&larr; All pitches</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card flat pitch">
+    <div class="row between">
+      <div class="pitch-copy">
+        <h1>Win and keep owners.</h1>
+        <p class="muted small">Give every owner a portal with their homes, values and statements, branded as you. You decide what's free and what's billed. For <b id="agent-name"></b>, <span id="agent-brokerage"></span>.</p>
+      </div>
+      <div class="stack price">
+        <div class="kpi"><div class="val">$25</div><div class="lbl">Hive, per agent / month</div></div>
+        <span class="badge info">Owners never get a bill from BEELO</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero" id="hero">
+    <!-- Agent side -->
+    <div class="card agent-panel">
+      <div class="row between"><h2>Agent controls</h2><span class="badge">You: <span id="agent-short"></span></span></div>
+      <label class="field"><span>Owner</span><select class="input" id="owner-pick"></select></label>
+
+      <div class="ctl" id="val-ctl">
+        <div class="small"><b>Home valuations for this owner</b></div>
+        <div class="toggle" id="fee-toggle" role="group" aria-label="Valuation pricing">
+          <button data-mode="included">Included in fee</button>
+          <button data-mode="addon">Add-on</button>
+        </div>
+        <div class="row addon-row" id="addon-row">
+          <span class="small">Portfolio analysis</span>
+          <span class="dollar"><input class="input" id="addon-price" type="number" min="0" step="5" value="150"></span>
+          <span class="small muted">/ quarter</span>
+        </div>
+        <p class="tiny muted" id="mode-note"></p>
+      </div>
+
+      <div class="ctl">
+        <div class="small"><b>Bill this owner for a service</b></div>
+        <div class="row">
+          <select class="input grow" id="svc-pick">
+            <option value="95|Lease renewal prep">Lease renewal prep · $95.00</option>
+            <option value="175|Listing photos">Listing photos · $175.00</option>
+            <option value="125|Annual inspection">Annual inspection · $125.00</option>
+          </select>
+          <button class="btn sm ink" id="bill-btn">Send invoice</button>
+        </div>
+        <p class="tiny muted">Paid by card through your own connected Stripe account. BEELO is only the conduit.</p>
+      </div>
+
+      <div class="ctl">
+        <div class="row between"><b class="small">Pay owner from trust account</b><span id="soon-slot"></span></div>
+        <p class="tiny muted">Owner distributions run outside the app for now.</p>
+      </div>
+
+      <div class="row between"><b class="small">Activity</b><button class="btn ghost sm" id="send-stmt">Send November statement</button></div>
+      <ul class="list log" id="log"></ul>
+    </div>
+
+    <!-- Owner phone -->
+    <div class="phone-col">
+      <div class="tiny muted center">What <b id="owner-first"></b> sees on their phone</div>
+      <div class="phone" id="phone">
+        <div class="phone-bar"><span>9:41</span><span id="phone-brand"></span><span>100%</span></div>
+        <div class="phone-body" id="pb">
+          <div class="tabs" id="otabs">
+            <button class="tab active" data-tab="homes">Homes</button>
+            <button class="tab" data-tab="stmt">Statement</button>
+            <button class="tab" data-tab="bills">Invoices</button>
+          </div>
+          <div class="tab-panel" data-panel="homes" id="p-homes"></div>
+          <div class="tab-panel" data-panel="stmt" id="p-stmt"></div>
+          <div class="tab-panel" data-panel="bills" id="p-bills"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="../shared/mock.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

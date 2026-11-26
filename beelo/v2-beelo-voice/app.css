@@ -1,0 +1,74 @@
+/* V2 BEELO Voice. Colors via tokens only. */
+body{overflow-x:hidden}
+.voice-tag{font-size:var(--fs-md);color:var(--gold-dark);font-style:italic}
+.top-actions{gap:var(--sp-2);flex-wrap:nowrap}
+.pitch{margin-bottom:var(--sp-4);background:var(--paper)}
+.pitch-line{font-size:var(--fs-xl);margin-bottom:var(--sp-2)}
+.pitch p{margin:0}
+.price .kpi{text-align:right}
+.price .val{color:var(--gold-dark)}
+.section-head{margin-bottom:var(--sp-4);align-items:flex-start}
+.section-head h2{margin-bottom:var(--sp-1)}
+.section-head p{margin:0}
+.center{text-align:center}
+.foot{margin-top:var(--sp-6);text-align:center}
+
+/* Assistant */
+.ask-grid{display:grid;gap:var(--sp-4);grid-template-columns:1fr}
+@media (min-width:900px){.ask-grid{grid-template-columns:minmax(320px,2fr) 3fr}}
+.mic-card{display:flex;flex-direction:column;align-items:stretch}
+.mic{width:120px;height:120px;border-radius:50%;margin:var(--sp-4) auto var(--sp-2);border:0;background:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px var(--gold-tint);transition:transform .1s}
+.mic:active{transform:scale(.97)}
+.mic-dot{width:30px;height:48px;border-radius:15px;background:var(--on-gold);position:relative}
+.mic-dot::after{content:'';position:absolute;left:50%;bottom:-18px;width:4px;height:14px;margin-left:-2px;background:var(--on-gold)}
+.mic.listening{animation:ring 1s ease-in-out infinite;background:var(--gold-dark)}
+@keyframes ring{50%{box-shadow:0 0 0 22px var(--gold-tint)}}
+.ask-form{display:flex;gap:var(--sp-2);margin-top:var(--sp-3)}
+.ask-form .input{flex:1;min-width:0}
+.wrap-chips{gap:var(--sp-2);margin-top:var(--sp-3)}
+.chip{border:1px solid var(--line);background:var(--ivory);color:var(--ink-2);border-radius:var(--r-pill);padding:var(--sp-1) var(--sp-3);font:500 var(--fs-xs) var(--font-body);cursor:pointer}
+.chip:hover{border-color:var(--gold)}
+.heard{font-family:var(--font-head);font-size:var(--fs-lg);font-style:italic;margin-bottom:var(--sp-2)}
+.parsed{gap:var(--sp-1);margin-bottom:var(--sp-3)}
+.listing{display:grid;grid-template-columns:96px 1fr;gap:var(--sp-3);padding:var(--sp-3) 0;border-top:1px solid var(--line)}
+.listing .photo{aspect-ratio:4/3}
+.listing h4{margin:0;font-size:var(--fs-md)}
+.listing .price-l{font-family:var(--font-head);font-size:var(--fs-lg);font-weight:700}
+.src{font-size:var(--fs-xs)}
+.typing::after{content:'|';animation:pulse 1s infinite;margin-left:2px}
+
+/* Calls */
+.call{padding:var(--sp-4)}
+.call .meta{gap:var(--sp-2)}
+.transcript{margin-top:var(--sp-3);background:var(--ivory);border-radius:var(--r-sm);padding:var(--sp-2) var(--sp-3)}
+.line{display:grid;grid-template-columns:64px 1fr;gap:var(--sp-2);padding:var(--sp-1) 0;font-size:var(--fs-sm);animation:toast-in .25s ease-out}
+.line b{color:var(--ink-3);font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.line.beelo b{color:var(--gold-dark)}
+.live{border:2px solid var(--gold);margin-bottom:var(--sp-4)}
+.crm{display:inline-flex;align-items:center;gap:var(--sp-2);font-size:var(--fs-sm);font-weight:600}
+.spinner{width:14px;height:14px;border-radius:50%;border:2px solid var(--gold-soft);border-top-color:var(--gold);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Leads */
+.lead-grid{display:grid;gap:var(--sp-3);grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.lead h3{margin:0}
+.lead .note{margin:var(--sp-2) 0}
+.lead-actions{gap:var(--sp-2);margin-top:var(--sp-3)}
+.lead.landed{border:2px solid var(--gold);animation:flash 1.6s ease-out 2}
+.lead-filter-empty{grid-column:1/-1}
+
+/* Alerts */
+.alert{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-3);align-items:start}
+.alert-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:var(--gold-tint);color:var(--gold-dark)}
+.alert-icon.drop{background:var(--warn-tint);color:var(--warn)}
+.alert.read{opacity:.6}
+.alert p{margin:var(--sp-1) 0}
+
+@media (max-width:520px){
+  .topbar{padding:var(--sp-2) var(--sp-3)}
+  .brand{font-size:var(--fs-lg)}
+  .voice-tag{display:none}
+  .price .kpi{text-align:left}
+  .listing{grid-template-columns:72px 1fr}
+  .wrap{padding:var(--sp-3)}
+}
