@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hive After-Hours Emergency · BEELO</title>
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="hex"></span>Hive</a>
+  <a class="small" href="../index.html">← All pitches</a>
+</header>
+
+<main class="wrap">
+  <section class="card hero">
+    <div class="row between">
+      <span class="badge info">V5 · After-Hours Emergency</span>
+      <span class="badge">Hive · $25/agent/month</span>
+    </div>
+    <h1>Sleep through the night; the system chases the vendor.</h1>
+    <p class="muted small">Quiet hours 9 pm–8 am hold every alert except emergencies. A burst pipe breaks through, texts you from your one Hive number, and keeps texting until you acknowledge. Meanwhile it broadcasts to your plumbers. First to accept wins.</p>
+    <div class="row controls">
+      <button class="btn danger" id="btn-sim">Simulate burst pipe at 2:14 am</button>
+      <button class="btn ink" id="btn-demo">Run demo</button>
+      <button class="btn ghost" id="btn-reset">Reset</button>
+      <div class="toggle" id="speed" role="group" aria-label="Demo speed">
+        <button data-speed="1" class="on">1×</button><button data-speed="4">4×</button>
+      </div>
+    </div>
+    <div class="clockbar">
+      <div><div class="tiny muted">Simulated time · Wed Nov 26</div><div class="clock" id="clock">2:14 am</div></div>
+      <div class="tiny muted speednote" id="speednote">Accelerated clock: 1 sim-minute = 0.3 s. Long quiet stretches fast-forward.</div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="phone-col">
+      <div class="toggle threads" id="threads" role="group" aria-label="Whose phone">
+        <button data-th="agent" class="on">Jordan (you)</button><button data-th="vendors">Plumbers</button><button data-th="tenant">Tenant</button><button data-th="owner">Owner</button>
+      </div>
+      <div class="phone">
+        <div class="phone-bar"><span id="ph-time">2:14</span><span id="ph-who">Hive Alerts</span><span>●●●</span></div>
+        <div class="phone-sub tiny muted" id="ph-sub"></div>
+        <div class="phone-body" id="phone-body"></div>
+        <div class="phone-foot" id="phone-foot"></div>
+      </div>
+    </aside>
+
+    <section class="main-col stack">
+      <article class="card" id="ticket-card"></article>
+      <article class="card" id="race-card"></article>
+      <article class="card" id="owner-card"></article>
+      <article class="card" id="close-card"></article>
+      <article class="card">
+        <h3>Overnight log</h3>
+        <ul class="list small" id="log"></ul>
+      </article>
+    </section>
+  </div>
+  <p class="disclaimer">Demo prototype with mock data. Texts are simulated; nothing is sent. Alerts come from the agent's one local Twilio number, not a number per door.</p>
+</main>
+
+<script src="../shared/mock.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
