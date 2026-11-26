@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BEELO Voice</title>
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="#"><span class="hex"></span>BEELO <span class="voice-tag">Voice</span></a>
+  <div class="row top-actions">
+    <button class="btn sm" id="run-demo">▶ Run demo</button>
+    <a class="btn ghost sm" href="../index.html">&larr; All pitches</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="pitch card flat">
+    <div class="row between">
+      <div>
+        <h1 class="pitch-line">Your assistant for MLS and leads.</h1>
+        <p class="muted small">Ask about listings out loud. Every missed call becomes a lead, synced to your CRM. For <b id="agent-name"></b>, <span id="agent-brokerage"></span>.</p>
+      </div>
+      <div class="price">
+        <div class="kpi"><div class="val">$39</div><div class="lbl">BEELO, per agent / month</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tabs" id="main-tabs">
+    <button class="tab active" data-tab="ask">Assistant</button>
+    <button class="tab" data-tab="calls">Calls <span class="badge" id="calls-count">0</span></button>
+    <button class="tab" data-tab="leads">Lead inbox <span class="badge" id="leads-count">0</span></button>
+    <button class="tab" data-tab="alerts">Market alerts <span class="badge" id="alerts-count">0</span></button>
+  </div>
+
+  <!-- Assistant -->
+  <section class="tab-panel" data-panel="ask">
+    <div class="ask-grid">
+      <div class="card mic-card">
+        <div class="row between"><h2>Ask BEELO</h2><span id="ask-sample"></span></div>
+        <button class="mic" id="mic" aria-label="Tap to talk"><span class="mic-dot"></span></button>
+        <p class="muted small center" id="mic-hint">Tap the mic and speak, or type below.</p>
+        <form id="ask-form" class="ask-form">
+          <input class="input" id="ask-input" placeholder="e.g. three bed under four-fifty in Frisco" autocomplete="off">
+          <button class="btn" type="submit">Ask</button>
+        </form>
+        <div class="row wrap-chips" id="chips"></div>
+      </div>
+      <div class="card answer-card">
+        <div class="row between"><h3>Answer</h3><span id="answer-sample"></span></div>
+        <div id="answer"><p class="muted">Results show here, each with a link to its source.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calls -->
+  <section class="tab-panel" data-panel="calls">
+    <div class="row between section-head">
+      <div><h2>Call capture</h2><p class="muted small">Calls to your BEELO line <b id="twilio-num"></b> are answered, transcribed and logged.</p></div>
+      <button class="btn" id="sim-call">Simulate missed call</button>
+    </div>
+    <div id="live-call" class="hide"></div>
+    <div id="call-list" class="stack"></div>
+  </section>
+
+  <!-- Leads -->
+  <section class="tab-panel" data-panel="leads">
+    <div class="row between section-head">
+      <div><h2>Lead inbox</h2><p class="muted small">New, contacted and nurture leads in one place.</p></div>
+      <div class="toggle" id="lead-filter">
+        <button class="on" data-f="all">All</button><button data-f="new">New</button><button data-f="contacted">Contacted</button><button data-f="nurture">Nurture</button>
+      </div>
+    </div>
+    <div id="lead-list" class="lead-grid"></div>
+  </section>
+
+  <!-- Alerts -->
+  <section class="tab-panel" data-panel="alerts">
+    <div class="row between section-head">
+      <div><h2>Market signals</h2><p class="muted small">Price drops and new listings that match people in your referral network.</p></div>
+      <span id="alerts-sample"></span>
+    </div>
+    <div id="alert-list" class="stack"></div>
+  </section>
+
+  <p class="disclaimer foot">Prototype. All listings are sample data from a mock feed, not live MLS. Calls and leads are simulated.</p>
+</main>
+
+<script src="../shared/mock.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

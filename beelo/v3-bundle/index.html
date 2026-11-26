@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Dashboard Bundle · BEELO + Hive</title>
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="#"><span class="hex"></span>BEELO <span class="brand-plus">+ Hive</span></a>
+  <div class="row top-actions">
+    <button class="btn sm" id="run-demo">▶ Run demo</button>
+    <a class="btn sm ghost" href="../index.html">← All pitches</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="pitch card flat">
+    <div class="row between">
+      <div>
+        <h1>Property management and your own growth in one place.</h1>
+        <p class="muted small">Hive keeps your doors running. BEELO turns what you already know about those doors into listings and leads. One dashboard, one login.</p>
+      </div>
+      <div class="price">
+        <div class="price-val">$55</div>
+        <div class="tiny muted">per agent / month<br>Hive + BEELO bundle</div>
+        <div class="tiny muted strike">Separately $25 + $39 = $64</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="kpis" id="kpis"></div>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="today">Today</button>
+    <button class="tab" data-tab="doors">Doors</button>
+    <button class="tab" data-tab="leads">Leads <span class="badge" id="lead-count"></span></button>
+  </nav>
+
+  <section class="tab-panel" data-panel="today">
+    <div class="row between feed-head">
+      <div class="row chips" id="chips" role="group" aria-label="Filter feed">
+        <button class="chip on" data-f="all">All</button>
+        <button class="chip" data-f="doors">Doors</button>
+        <button class="chip" data-f="leads">Leads</button>
+      </div>
+      <span class="tiny muted" id="feed-count"></span>
+    </div>
+    <ul class="feed" id="feed"></ul>
+  </section>
+
+  <section class="tab-panel" data-panel="doors">
+    <div class="doors-layout" id="doors-layout">
+      <div class="door-list card flat"><div class="row between"><h3>Your 23 doors</h3><span data-sample></span></div><ul class="list" id="door-list"></ul></div>
+      <div class="door-detail" id="door-detail"></div>
+    </div>
+  </section>
+
+  <section class="tab-panel" data-panel="leads">
+    <div class="card flat">
+      <div class="row between"><h3>Leads</h3><span class="tiny muted">BEELO · new leads text you from <span id="tw"></span></span></div>
+      <ul class="list" id="lead-list"></ul>
+    </div>
+  </section>
+
+  <p class="tiny muted footnote">All names, doors, valuations and leads are sample data for this demo. No live MLS. Card payments run through your own connected Stripe account; owners never get a bill from BEELO.</p>
+</main>
+
+<div class="demo-bar hide" id="demo-bar"><span class="badge" id="demo-step"></span><span id="demo-text"></span></div>
+
+<script src="../shared/mock.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

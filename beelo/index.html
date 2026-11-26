@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEELO Pitch Picker</title>
+<link rel="stylesheet" href="shared/ui.css">
+<style>
+  .hero{padding:var(--sp-6) 0 var(--sp-4)}
+  .hero h1{margin-bottom:var(--sp-2)}
+  .pitch{display:flex;flex-direction:column;gap:var(--sp-2);text-decoration:none;color:var(--ink)}
+  .pitch .num{font-family:var(--font-head);font-size:var(--fs-xl);color:var(--gold);font-weight:700;line-height:1}
+  .pitch h2{font-size:var(--fs-lg);margin:0}
+  .pitch p{flex:1;margin:0;color:var(--ink-2)}
+  .pitch .for{font-size:var(--fs-xs);color:var(--ink-3)}
+  .pitch:hover{border-color:var(--gold)}
+  .prices{display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-top:var(--sp-5)}
+</style>
+</head>
+<body class="honey-bg">
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="hex"></span>BEELO</a>
+  <span class="badge sample">Sample data</span>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <h1>Pick your pitch</h1>
+    <p class="muted">Six clickable prototypes. Open the one that fits the agent in front of you. All data is invented sample data.</p>
+  </section>
+  <section class="grid" id="cards"></section>
+  <section class="prices">
+    <span class="badge">Hive $25.00 / agent / mo</span>
+    <span class="badge">BEELO $39.00 / agent / mo</span>
+    <span class="badge ok">Both $55.00 / agent / mo</span>
+    <span class="badge info">Owners never get a bill from BEELO</span>
+  </section>
+</main>
+<script>
+  const P = [
+    ['v1-hive-solo', 'Hive Solo', 'Run your doors without texts and spreadsheets.', 'Hive · $25.00', 'Agents juggling a handful of doors by text.'],
+    ['v2-beelo-voice', 'BEELO Voice', 'Your assistant for MLS and leads.', 'BEELO · $39.00', 'Producers who miss calls while showing.'],
+    ['v3-bundle', 'One Dashboard', 'Property management and your own growth in one place.', 'Both · $55.00', 'Agents who manage and sell, and want owner listings.'],
+    ['v4-owner-portal', 'Owner Portal', 'Win and keep owners.', 'Hive · $25.00', 'Agents competing for investor owners.'],
+    ['v5-after-hours', 'After-Hours Emergency', 'Sleep through the night; the system chases the vendor.', 'Hive · $25.00', 'Agents burned by 2 am tenant calls.'],
+    ['v6-switch', 'Switch Over', 'Move your doors in thirty minutes.', 'Hive $25.00 or Both $55.00', 'Agents on AppFolio or similar who feel overcharged.'],
+  ];
+  document.getElementById('cards').innerHTML = P.map(([dir, name, line, tier, who], i) => `
+    <a class="card pitch" href="${dir}/index.html">
+      <span class="num">0${i + 1}</span>
+      <h2>${name}</h2>
+      <p>${line}</p>
+      <span class="for">${who}</span>
+      <div class="row between"><span class="badge">${tier}</span><span class="btn sm">Open</span></div>
+    </a>`).join('');
+</script>
+</body>
+</html>
